@@ -12,7 +12,7 @@ function MLogin() {
     return (
       <>
         <Button variant="primary" onClick={handleShow}>
-          Launch demo modal
+          Login Demo
         </Button>
   
         <Modal show={show} onHide={handleClose} size = 'sm'>

@@ -22,21 +22,22 @@ export default function Logon() {
   };
 
   return (
-    <Form onSubmit={handleSubmit} className="form-control">
-    <Form.Group controlId="formBasicEmail" >
+    <Form onSubmit={handleSubmit}  >
+    <Form.Group controlId="formBasicEmail" size='sm' >
       <Form.Label>Email address</Form.Label>
       <Form.Control 
+        size='sm'
         type="email" 
         name="email"
         placeholder="Enter email"
         onChange = {handleInputChange}        
         />
-      <Form.Text className="text-muted">
+      <Form.Text lassName="text-muted" size='sm'>
         We'll never share your email with anyone else.
       </Form.Text>
     </Form.Group>
   
-    <Form.Group controlId="formBasicPassword" >
+    <Form.Group controlId="formBasicPassword" size='sm' >
       <Form.Label>Password</Form.Label>
       <Form.Control 
         type="password"
@@ -52,31 +53,6 @@ export default function Logon() {
       Submit
     </Button>
   </Form>
-//     <div className="Login">
-//       <form onSubmit={handleSubmit}>
-//         <div className="form-control">
-//           <label>Email</label>
-//           <input
-//             type="text"
-//             name="email"
-//             value={login.email}
-//             onChange={handleInputChange}
-//           />
-//         </div>
-//         <div className="form-control">
-//           <label>Password</label>
-//           <input
-//             type="password"
-//             name="password"
-//             value={login.password}
-//             onChange={handleInputChange}
-//           />
-//         </div>
-//         <div className="form-control">
-//           <label></label>
-//           <button type="submit">Login</button>
-//         </div>
-//       </form>
-//     </div>
   );
+
 }

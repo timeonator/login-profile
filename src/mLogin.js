@@ -20,7 +20,7 @@ function MLogin() {
             <Modal.Title>Login</Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            <Logon />
+            <Logon hide={handleClose}/>
           </Modal.Body>
 {          // <Modal.Footer>
           //   <Button variant="secondary" onClick={handleClose}>

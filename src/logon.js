@@ -3,7 +3,7 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 // import "./styles.css";
 
-export default function Logon() {
+export default function Logon(props) {
   const [login, setLogin] = useState({
     email: "",
     password: ""
@@ -19,6 +19,7 @@ export default function Logon() {
   const handleSubmit = (event) => {
     event.preventDefault();
     console.log(login);
+    props.hide();
   };
 
   return (

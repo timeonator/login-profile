@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
-import Logon from './logon';
+import Login from './login';
 
 function MLogin() {
     const [show, setShow] = useState(false);
@@ -20,7 +20,7 @@ function MLogin() {
             <Modal.Title>Login</Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            <Logon hide={handleClose}/>
+            <Login hide={handleClose}/>
           </Modal.Body>
 {          // <Modal.Footer>
           //   <Button variant="secondary" onClick={handleClose}>

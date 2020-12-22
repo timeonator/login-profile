@@ -1,7 +1,9 @@
 import React, { useState } from "react";
+import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/Button';
 // import "./styles.css";
 
-export default function Login() {
+export default function Logon(props) {
   const [login, setLogin] = useState({
     email: "",
     password: ""
@@ -17,39 +19,41 @@ export default function Login() {
   const handleSubmit = (event) => {
     event.preventDefault();
     console.log(login);
+    props.hide();
   };
 
   return (
-    <div className="Login">
-      <form  onSubmit={handleSubmit} >
-        <div className="form-control">
-          <label>Email</label>
-          <input
-            type="text"
-            name="email"
-            value={login.email}
-            onChange={handleInputChange}
-          />
-
-          </div>
-          <div >
-            <text className="text-muted">
-            We'll never share your email with anyone else.
-          </text>        </div>
-        <div className="form-control">
-          <label>Password</label>
-          <input
-            type="password"
-            name="password"
-            value={login.password}
-            onChange={handleInputChange}
-          />
-        </div>
-        <div className="form-control">
-          <label></label>
-          <button type="submit">Login</button>
-        </div>
-      </form>
-    </div>
+    <Form onSubmit={handleSubmit}  >
+    <Form.Group controlId="formBasicEmail" size='sm' >
+      <Form.Label>Email address</Form.Label>
+      <Form.Control 
+        size='sm'
+        type="email" 
+        name="email"
+        placeholder="Enter email"
+        onChange = {handleInputChange}        
+        />
+      <Form.Text lassName="text-muted" size='sm'>
+        We'll never share your email with anyone else.
+      </Form.Text>
+    </Form.Group>
+  
+    <Form.Group controlId="formBasicPassword" size='sm' >
+      <Form.Label>Password</Form.Label>
+      <Form.Control 
+        type="password"
+        name="password"
+        placeholder="Password"
+        onChange = {handleInputChange}
+    />
+    </Form.Group>
+    <Form.Group controlId="formBasicCheckbox">
+      <Form.Check type="checkbox" label="Check me out" />
+    </Form.Group>
+    <Button variant="primary" type="submit" >
+      Submit
+    </Button>
+  </Form>
   );
+
 }

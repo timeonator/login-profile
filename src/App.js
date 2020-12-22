@@ -1,14 +1,16 @@
 
 import './App.css';
 import Counter from './Counter';
-import Login from './Login';
+import Logon from './logon'; /* logon rendered with components */
+import Login from './Login'; /* login rendered with html */
 
 
 function App() {
   return (
     <div className="App">
-      <Counter />
       <Login />
+      <Counter />
+      <Logon />
     </div>
   );
 }

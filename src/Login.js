@@ -20,8 +20,8 @@ export default function Login() {
   };
 
   return (
-    <div className="App">
-      <form onSubmit={handleSubmit}>
+    <div className="Login">
+      <form  onSubmit={handleSubmit} >
         <div className="form-control">
           <label>Email</label>
           <input
@@ -30,7 +30,12 @@ export default function Login() {
             value={login.email}
             onChange={handleInputChange}
           />
-        </div>
+
+          </div>
+          <div >
+            <text className="text-muted">
+            We'll never share your email with anyone else.
+          </text>        </div>
         <div className="form-control">
           <label>Password</label>
           <input

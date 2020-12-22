@@ -33,7 +33,7 @@ export default function Logon(props) {
         placeholder="Enter email"
         onChange = {handleInputChange}        
         />
-      <Form.Text lassName="text-muted" size='sm'>
+      <Form.Text size='sm'>
         We'll never share your email with anyone else.
       </Form.Text>
     </Form.Group>

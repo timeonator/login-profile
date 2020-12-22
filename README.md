@@ -1,4 +1,10 @@
-# Getting Started with Create React App
+# Code Snippets Using useState Hooks
+## Login Snippet
+Simple Login dialog object using plain html internally
+## Logon Snippet
+Same functionality as Login above but uses bootstrap components internally
+## Counter
+Simple button click counter example
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 

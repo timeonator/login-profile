@@ -2,6 +2,7 @@
 import './App.css';
 import MLogin from './mLogin' /* Modal Login */
 import MRegister from './mRegister'; /* Modal Register Dialog */
+import MProfile from './mProfile';
 
 
 function App() {
@@ -9,6 +10,7 @@ function App() {
     <div className="App">
     <MLogin />
     <MRegister />
+    <MProfile />
     </div>
   );
 }

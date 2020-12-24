@@ -13,29 +13,37 @@ var Profile = (props) => {
             <Form.Label>Email</Form.Label>
             <Form.Control type="email" placeholder="Enter email" />
         </Form.Group>
+        </Form.Row>
 
+        <Form.Row>
         <Form.Group as={Col} controlId="formGridPassword">
             <Form.Label>Password</Form.Label>
             <Form.Control type="password" placeholder="Password" />
         </Form.Group>
         </Form.Row>
 
-        <Form.Group controlId="formGridAddress1">
-        <Form.Label>Address</Form.Label>
-        <Form.Control placeholder="1234 Main St" />
+        <Form.Row>
+        <Form.Group controlId="formGridUserName">
+        <Form.Label>User Name</Form.Label>
+        <Form.Control placeholder="user name" />
         </Form.Group>
-
-        <Form.Group controlId="formGridAddress2">
-        <Form.Label>Address 2</Form.Label>
-        <Form.Control placeholder="Apartment, studio, or floor" />
-        </Form.Group>
+        </Form.Row>
 
         <Form.Row>
-        <Form.Group as={Col} controlId="formGridCity">
-            <Form.Label>City</Form.Label>
-            <Form.Control />
+        <Form.Group as={Col} controlId="formGridFirstName">
+        <Form.Label>First Name</Form.Label>
+        <Form.Control placeholder="Your First Name" />
         </Form.Group>
+        </Form.Row>
 
+        <Form.Row>
+        <Form.Group as={Col} controlId="formGridLastName">
+        <Form.Label>Last Name</Form.Label>
+        <Form.Control placeholder="Your Last Name" />
+        </Form.Group>
+        </Form.Row>
+
+        <Form.Row>
         <Form.Group as={Col} controlId="formGridState">
             <Form.Label>State</Form.Label>
             <Form.Control as="select" defaultValue="Choose...">

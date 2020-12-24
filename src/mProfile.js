@@ -20,6 +20,7 @@ function MProfile() {
     
           <Modal
             show={show}
+            size="sm"
             onHide={handleClose}
             backdrop="static"
             keyboard={false}

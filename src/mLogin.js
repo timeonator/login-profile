@@ -22,12 +22,6 @@ function MLogin() {
           <Modal.Body>
             <Login hide={handleClose}/>
           </Modal.Body>
-{          // <Modal.Footer>
-          //   <Button variant="secondary" onClick={handleClose}>
-          //     Close
-          //   </Button>
-          // </Modal.Footer>
-}
         </Modal>
       </>
     );

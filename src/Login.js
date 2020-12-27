@@ -27,6 +27,7 @@ export default function Logon(props) {
     <Form.Group controlId="formBasicEmail" size='sm' >
       <Form.Label>Email address</Form.Label>
       <Form.Control 
+        required
         size='sm'
         type="email" 
         name="email"
@@ -41,6 +42,7 @@ export default function Logon(props) {
     <Form.Group controlId="formBasicPassword" size='sm' >
       <Form.Label>Password</Form.Label>
       <Form.Control 
+        required
         type="password"
         name="password"
         placeholder="Password"

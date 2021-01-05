@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
-import Profile from './profile';;
 
-function MProfile() {
+
+function ModalWrapper(props) {
     const [show, setShow] = useState(false);
   
     const handleClose = () => setShow(false);
@@ -15,7 +15,7 @@ function MProfile() {
     return(
         <>
         <Button variant="primary" onClick={handleShow}>
-            Edit Profile
+            {props.title}
        </Button>
     
           <Modal
@@ -26,13 +26,13 @@ function MProfile() {
             keyboard={false}
           >
             <Modal.Header closeButton>
-              <Modal.Title>Edit Profile</Modal.Title>
+              <Modal.Title>{props.title}</Modal.Title>
             </Modal.Header>
             <Modal.Body>
-                <Profile />
+                {props.element}
             </Modal.Body>
           </Modal>
         </>
     )};
  
-    export default MProfile;
+    export default ModalWrapper;

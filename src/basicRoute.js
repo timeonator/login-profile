@@ -22,7 +22,6 @@ export default function BasicRoute() {
                 <Nav.Link eventKey="about" href="/About">About</Nav.Link>
                 <Nav.Link eventKey="users" href="/Dashboard">Dashboard</Nav.Link>
             </Nav>
-            <MProfile />
         </Navbar.Collapse>
         </Navbar>
 

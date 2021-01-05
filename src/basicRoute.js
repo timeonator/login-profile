@@ -6,7 +6,7 @@ import {
   Switch,
   Route
 } from "react-router-dom";
-import MProfile from './mProfile';
+
 
 export default function BasicRoute() {
   return (

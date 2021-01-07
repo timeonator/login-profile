@@ -6,6 +6,7 @@ import {
   Switch,
   Route
 } from "react-router-dom";
+import ProfileButton from './profile-button';
 
 
 export default function BasicRoute() {
@@ -23,6 +24,7 @@ export default function BasicRoute() {
                 <Nav.Link eventKey="users" href="/Dashboard">Dashboard</Nav.Link>
             </Nav>
         </Navbar.Collapse>
+        <ProfileButton />
         </Navbar>
 
         <Switch>

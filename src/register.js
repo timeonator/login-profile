@@ -4,14 +4,14 @@ import Button from 'react-bootstrap/Button';
 // import "./styles.css";
 
 export default function Register(props) {
-  const [login, setLogin] = useState({
+  const [registration, setRegistration] = useState({
     email: "",
     password: "",
     confirmpassword: ""
   });
 
   const handleInputChange = (event) => {
-    setLogin((prevProps) => ({
+    setRegistration((prevProps) => ({
       ...prevProps,
       [event.target.name]: event.target.value
     }));
@@ -19,7 +19,7 @@ export default function Register(props) {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(login);
+    console.log(registration);
     props.hide();
   };
 

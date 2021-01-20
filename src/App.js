@@ -9,11 +9,11 @@ function App() {
   return (
     <div className="App">
     <BasicRoute />
-{
-    // <ModalWrapper element="login" title="Login" />
-    // <ModalWrapper element="register" title="Register" />
-    // <ModalWrapper element="profile" title="Edit Profile" />
-}
+
+    <ModalWrapper element="login" title="Login" />
+    <ModalWrapper element="register" title="Register" />
+    <ModalWrapper element="profile" title="Edit Profile" />
+
     </div>
   );
 }

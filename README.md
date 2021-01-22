@@ -1,5 +1,19 @@
 # Workspace for Rolling My Own Login Dialogs
 
+### `How To Run`
+
+To `Start the Server`
+
+cd to server
+
+npm start
+
+To `Start the UI`
+
+Open a second terminal and cd to the projects root directory
+
+npm start
+
 ### `npm test`
 
 Launches the test runner in the interactive watch mode.\

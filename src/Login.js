@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
+const SERVER_PORT = 3002;
 // import "./styles.css";
 
 export default function Logon(props) {
@@ -16,11 +17,29 @@ export default function Logon(props) {
     }));
   };
 
+  const [profile, setProfile] = useState({
+    id: null,
+        first_name: "",
+        last_name: "",
+        email: "",
+        username: ""
+    });
   const handleSubmit = (event) => {
-    event.preventDefault();
-    console.log(login);
-    props.hide();
-  };
+    const r ='http://localhost:'+SERVER_PORT+'/user/'+login.email;
+    console.log("what the matter here?:", r);
+    fetch(r, {mode: 'cors' })
+      .then (response => response.json())
+    .then (data => {
+        console.log("Response Data: ", JSON.stringify(data));
+    })
+      .catch((error) => {
+          console.error('Error:', error);
+
+      });
+
+  event.preventDefault();
+  props.hide();
+};
 
   return (
     <Form onSubmit={handleSubmit}  >

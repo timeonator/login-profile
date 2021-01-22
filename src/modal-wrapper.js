@@ -25,6 +25,8 @@ function ModalWrapper(props) {
       case 'profile':
         op = <ProfileName hide={handleClose} />
         break;
+      default:
+        op = <Login hide={handleClose} />      
     }
 
     return(

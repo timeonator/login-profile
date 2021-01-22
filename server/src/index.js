@@ -1,7 +1,11 @@
 import express from "express";
 var mysql = require('mysql');
 import connection from './connection'
+const cors = require('cors')
 
+const corsOptions = {
+  origin: 'http://localhost:3000',
+}
 connection.connect();
 const app = express();
 const PORT=3002;
@@ -10,7 +14,7 @@ app.listen(PORT, () => {
     console.log(`Begin listening on port:${PORT}`);
 });
 
-app.get('/users', (req, res) => {
+app.get('/users', cors(corsOptions), (req, res) => {
     const query = "SELECT * FROM users";
     connection.query(query, function (err, result, fields) {
         if (err) throw err
@@ -18,21 +22,21 @@ app.get('/users', (req, res) => {
     });
 
 });
-app.get('/user/:email', function (req, res, next) {
+app.get('/user/:email', cors(corsOptions), function (req, res, next) {
     let query=`SELECT * FROM users where email=?`;
 
-    console.log(JSON.stringify(req.params));
-        connection.query(query, req.params.email, function (err, result, fields) {
+    console.log("Query params: ", JSON.stringify(req.params));
+    connection.query(query, req.params.email, function (err, result, fields) {
         if (err) throw err
-        console.log(JSON.stringify(result));
+        console.log("Query Result: ", JSON.stringify(result));
         res.send(JSON.stringify(result));
     });
   });
   
-app.get('/user/:id:email', (req, res, next) => {
-    console.log(JSON.stringify(req.params));
-    res.send(JSON.stringify(req.param));
-});
+// app.get('/user/:id:email', (req, res, next) => {
+//     console.log(JSON.stringify(req.params));
+//     res.send(JSON.stringify(req.param));
+// });
 
 app.post('/user:index', (req, res) => {
     console.log(`post to /user port ${PORT}`);

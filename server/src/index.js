@@ -1,5 +1,6 @@
 import express from "express";
 var mysql = require('mysql');
+const bcrypt = require('bcrypt');
 import connection from './connection'
 const cors = require('cors')
 
@@ -14,13 +15,41 @@ app.listen(PORT, () => {
     console.log(`Begin listening on port:${PORT}`);
 });
 
+app.get('/password/:pw', cors(corsOptions), (req, res) => {
+    const saltRounds = 10;
+    const myPlaintextPassword = req.params.pw;
+    bcrypt.hash(myPlaintextPassword, saltRounds, function(err, hash) {
+        res.send(hash);
+    });
+});
+app.put('/user/password/:id/:pw', cors(corsOptions), (req,res)=>{
+    const saltRounds = 10;
+    const myPlaintextPassword = req.params.pw;
+    bcrypt.hash(myPlaintextPassword, saltRounds, function(err, hash) {
+        const query = `update users set users.password=? where users.id=?`;
+        console.log(query,[hash,req.params.id]);
+        connection.query(query, [hash, req.params.id], (error, results, fields) => {
+            if (error){
+                res.end();
+                return console.error(error.message);
+            }  
+            console.log('Updated ', results);
+            res.end();
+        });
+    });
+});
+
+
 app.get('/users', cors(corsOptions), (req, res) => {
     const query = "SELECT * FROM users";
     connection.query(query, function (err, result, fields) {
-        if (err) throw err
-        res.send(JSON.stringify(result));
+    const bcrypt = require('bcrypt');
+    const saltRounds = 10;
+    const myPlaintextPassword = req.params.pw;
+    bcrypt.hash(myPlaintextPassword, saltRounds, function(err, hash) {
+        res.send(hash);
     });
-
+    });
 });
 app.get('/user/:email', cors(corsOptions), function (req, res, next) {
     let query=`SELECT * FROM users where email=?`;

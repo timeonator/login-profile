@@ -1,4 +1,5 @@
 import express from "express";
+
 var mysql = require('mysql');
 const bcrypt = require('bcrypt');
 import connection from './connection'
@@ -9,7 +10,11 @@ const corsOptions = {
 }
 connection.connect();
 const app = express();
+app.use(express.json());
+app.use(express.urlencoded());
+
 const PORT=3002;
+//app.use(express.json);
 
 app.listen(PORT, () => {
     console.log(`Begin listening on port:${PORT}`);
@@ -22,7 +27,7 @@ app.get('/password/:pw', cors(corsOptions), (req, res) => {
         res.send(hash);
     });
 });
-app.put('/user/password/:id/:pw', cors(corsOptions), (req,res)=>{
+app.put('/password/:id/:pw', cors(corsOptions), (req,res)=>{
     const saltRounds = 10;
     const myPlaintextPassword = req.params.pw;
     bcrypt.hash(myPlaintextPassword, saltRounds, function(err, hash) {
@@ -55,11 +60,22 @@ app.get('/user/:email', cors(corsOptions), function (req, res, next) {
     let query=`SELECT * FROM users where email=?`;
 
     console.log("Query params: ", JSON.stringify(req.params));
-    connection.query(query, req.params.email, function (err, result, fields) {
+    connection.query(query, [req.params.email,req.params.password],  function (err, result, fields) {
         if (err) throw err
         console.log("Query Result: ", JSON.stringify(result));
         res.send(JSON.stringify(result));
     });
+  });
+
+  app.post('/user', cors(corsOptions), function(req, res) {
+      let query=`insert into users set users.email = ?, users.password=?`;
+    
+      console.log("Request Body: ", req.body);
+      connection.query(query,[req.body.email,req.body.password], function(err, result, fields) {
+          if (err) throw err;
+          res.send(JSON.stringify(result));
+      });
+
   });
   
 // app.get('/user/:id:email', (req, res, next) => {

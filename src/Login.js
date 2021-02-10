@@ -1,42 +1,46 @@
 import React, { useState } from "react";
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
-const SERVER_PORT = 3002;
+const SERVER_PORT = 3001;
 // import "./styles.css";
 
-export default function Logon(props) {
-  const [login, setLogin] = useState({
-    email: "",
-    password: ""
-  });
+export default function Login(props) {
 
+  const [profile, setProfile] = useState({
+        id: null,
+        first_name: "",
+        last_name: "",
+        email: "",
+        username: "",
+        password:""
+    });
   const handleInputChange = (event) => {
-    setLogin((prevProps) => ({
+    setProfile((prevProps) => ({
       ...prevProps,
       [event.target.name]: event.target.value
     }));
   };
 
-  const [profile, setProfile] = useState({
-    id: null,
-        first_name: "",
-        last_name: "",
-        email: "",
-        username: ""
-    });
+
   const handleSubmit = (event) => {
-    const r ='http://localhost:'+SERVER_PORT+'/user/'+login.email;
-    console.log("what the matter here?:", r);
-    fetch(r, {mode: 'cors' })
-      .then (response => response.json())
-    .then (data => {
-        console.log("Response Data: ", JSON.stringify(data));
+    console.log("login handleSubmit: ", profile);
+    const r ='http://localhost:'+3001+'/login';
+    console.log("starting at ?:", r);
+    fetch(r, {
+        method: 'post',
+//        mode: 'cors',
+//        credentials: 'same-origin', // include, *same-origin, omit
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(profile)
+    })
+    .then (response => {
+        console.log("Response Data: ", response.json());
     })
       .catch((error) => {
           console.error('Error:', error);
-
       });
-
   event.preventDefault();
   props.hide();
 };

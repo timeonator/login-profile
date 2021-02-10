@@ -19,8 +19,25 @@ export default function Register(props) {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(registration);
     props.hide();
+    console.log("registation ", registration);
+    const r ='http://localhost:'+3001+'/register';
+    fetch(r, {
+        method: 'post',
+        mode: 'cors',
+//        credentials: 'same-origin', // include, *same-origin, omit
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(registration)
+    })
+    .then (data => {
+        console.log("Response Data: ", data);
+    })
+    .catch((error) => {
+        console.error('Error:', error);
+
+    });
   };
 
   return (

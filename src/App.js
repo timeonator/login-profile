@@ -5,15 +5,17 @@ import ModalWrapper from './modal-wrapper'
 
 
 function App() {
+    var userContext = React.createContext(defaultContext);
+
 
   return (
     <div className="App">
-    <BasicRoute />
-
-    <ModalWrapper element="login" title="Login" />
-    <ModalWrapper element="register" title="Register" />
-    <ModalWrapper element="profile" title="Edit Profile" />
-
+        <userContext.Provider>
+            <BasicRoute />
+            <ModalWrapper element="login" title="Login" />
+            <ModalWrapper element="register" title="Register" />
+            <ModalWrapper element="profile" title="Edit Profile" />
+        </userContext.Provider>
     </div>
   );
 }
